@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Optimize your experience for using Amazon S3. Join the waitlist now!">
+    <meta name="keywords" content="amazon s3, UI for cloud, 
+    
+    AWS User Interface,
+Intuitive AWS Experience,
+User-Friendly Cloud Interface,
+File Management for AWS,
+AWS Simplified,
+Secondary Keywords:
+Easy File Upload/Download,
+Non-Tech AWS,
+Cloud Accessibility,
+AWS Navigation,
+Long-Tail Keywords:
+Simplified AWS File Handling,
+Cloud File Management Solution,
+Access AWS Without Technical Knowledge,
+Seamless AWS File Transfer,
+Action Keywords:
+Experience Easy AWS UI,
+Simplify AWS Tasks,
+Optimize Cloud File Handling,
+Benefit Keywords:
+Effortless AWS Navigation,
+Streamlined Cloud Operations,
+Non-Tech User-Friendly AWS,
+Enhanced File Upload/Download,
+Simplify AWS for Everyone,
+Feature Keywords:
+Intuitive File Upload/Download,
+Cloud File Organization,
+User-Friendly AWS Dashboard,
+Non-Technical Cloud Access,
+Seamless AWS Integration,
+Industry-Specific Keywords:
+Cloud Productivity Tools,
+AWS File Management Solutions,
+Cloud Accessibility for All,
+Simplified Cloud Computing,
+AWS User Interface Innovation.">
+    <meta name="author" content="Neha Suresh">
+    <title>UI on S3  </title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <style>
+    
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('warm-yellow-discussion.jpeg');
+            background-size: cover;
+            background-position: center center; /* Adjusted to ensure the top part is not cropped */
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-family: 'Roboto Mono';
+            color: #0d2a6e;
+            backdrop-filter: blur(2px);
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+        .heading {
+            position: fixed;
+            top: 30px;
+            color: #0d2a6e;
+            background: #faebc966;
+            padding: 12px;
+            margin-bottom: 40px;
+        }
+        #progress-bar-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #progress-bar {
+            width: 0;
+            height: 20px;
+            background-color: #4CAF50;
+            margin-top: 5px;
+            text-align: center;
+            line-height: 20px;
+            color: #ffffff;
+        }
+        .btn-primary {
+            padding: 10px 20px;
+            display: block;
+            background-color: #0d2a6e;
+            color: #fff;
+            border: 1px solid #0d2a6e;
+            border-radius: 5%;
+            cursor: pointer;
+        }
+        .form-details {
+            background-color: #edededa1;
+            margin-top: 30px;
+            width: 80%;
+            margin: 30px auto;
+
+        }
+        .form-details div {
+            padding: 10px 15px;
+            margin: 10px;
+        }
+        .form-details .btn{
+            margin: 10px 10px 10px 20px;
+        }
+        .form-details h2{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="heading">Use a clean UI on Amazon S3</h1>
+    <br>
+    <br>
+    
+
+    <section class="form-details">
+
+        <!-- File Upload -->
+        <div class="file">
+
+            <div>
+                Revolutionize your S3 experience with our user-friendly UI, 
+                designed to simplify every interaction with unparalleled ease. 
+                Unleash the full potential of your data storage and retrieval, 
+                effortlessly navigating through powerful features tailored for 
+                seamless user engagement. Elevate your S3 usage – connect with 
+                us today and experience a new era of simplicity and efficiency.
+            </div>
+
+        </div>
+
+    </section>
+    
+
+    <script>
+        
+
+        function handleFileUpload(files) {
+            const progressBarContainer = document.getElementById('progress-bar-container');
+            const progressBar = document.getElementById('progress-bar');
+
+            if (files.length > 0) {
+                progressBarContainer.style.display = 'block';
+
+                const file = files[0];
+                const formData = new FormData();
+                formData.append('file', file);
+
+                const xhr = new XMLHttpRequest();
+
+                xhr.upload.addEventListener('progress', (event) => {
+                    if (event.lengthComputable) {
+                        // Simulate progress with a setTimeout function
+                        setTimeout(() => {
+                            const percentComplete = (event.loaded / event.total) * 100;
+                            progressBar.style.width = percentComplete + '%';
+                            progressBar.textContent = percentComplete.toFixed(0) + '%';
+                        }, 500); // Adjust the timeout duration as needed
+                    }
+                });
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // File uploaded successfully
+                        progressBarContainer.style.display = 'none';
+                        // Handle any additional actions after upload
+                    }
+                };
+
+                // Replace 'upload.php' with your server-side upload script
+                xhr.open('POST', 'upload.php', true);
+                xhr.send(formData);
+            }
+        }
+
+        function saveData() {
+            const fileInput = document.getElementById('fileInput');
+            const urlInput = document.getElementById('urlInput');
+
+            // Get the values from the inputs and perform the save operation
+            const selectedFile = fileInput.files[0];
+            const enteredURL = urlInput.value;
+
+            // Add your logic to save the file or URL data
+            console.log('Selected File:', selectedFile);
+            console.log('Entered URL:', enteredURL);
+        }
+    </script>
+    </script>
+</body>
+
+</html>
